@@ -109,7 +109,7 @@
 						</goals>
 						<phase>validate</phase>
 						<configuration>
-							<configLocation>src/cs/checkstyle-config_google-style_chenyin-version.xml</configLocation>
+							<configLocation>cs/maven-checkstyle-config_google-style_chenyin-version.xml</configLocation>
 							<encoding>UTF-8</encoding>
 							<consoleOutput>true</consoleOutput>
 							<failsOnError>true</failsOnError>
