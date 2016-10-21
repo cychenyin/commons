@@ -1,5 +1,4 @@
 
-
 package cy.common.data;
 
 import java.util.Properties;

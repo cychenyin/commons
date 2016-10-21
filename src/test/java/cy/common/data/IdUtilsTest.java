@@ -2,7 +2,6 @@
 package cy.common.data;
 
 import org.junit.Assert;
-import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
@@ -17,10 +16,10 @@ public class IdUtilsTest {
     @Ignore
     @Test
     public void testInitFromSystemProperies() {
-        File f = new File(IdUtils.CONFIG_PROPERTIES);
-        if (f.exists()) {
+        File file = new File(IdUtils.CONFIG_PROPERTIES);
+        if (file.exists()) {
             IdUtils.next();
-            assertTrue(IdUtils.getServerId() == 12);
+            Assert.assertTrue(IdUtils.getServerId() == 12);
         }
     }
 
@@ -29,8 +28,9 @@ public class IdUtilsTest {
     public void testInitFromJvmArguments() {
         System.setProperty(IdUtils.SERVER_ID, "22");
         IdUtils.next();
-        assertTrue(IdUtils.getServerId() == 22);
+        Assert.assertTrue(IdUtils.getServerId() == 22);
     }
+
     /**
      * config.properties path declared by jvm arguments
      * make sure file not exists in root of project.
@@ -38,8 +38,8 @@ public class IdUtilsTest {
     @Test
     public void testInitFromPackage() {
         String path = "src/test/resources/config.properties";
-        File f = new File(path);
-        if(f.exists()) {
+        File file = new File(path);
+        if (file.exists()) {
             System.setProperty(IdUtils.CONFIG_PROPERTIES, path);
             IdUtils.next();
             Assert.assertEquals(13, IdUtils.getServerId());

@@ -2,7 +2,6 @@
 package cy.common.data;
 
 import org.junit.Assert;
-import static org.junit.Assert.*;
 
 import java.sql.Date;
 
@@ -41,7 +40,7 @@ public class SnowflakeTest {
     @Test
     public void testConstant() {
         Assert.assertTrue(Snowflake.MAX_NODE == (1 << Snowflake.NODE_SHIFT) - 1);
-        Assert.assertTrue(Snowflake.MAX_SEQUENCE == (1 << Snowflake.SEQ_SHIFT) -1);
+        Assert.assertTrue(Snowflake.MAX_SEQUENCE == (1 << Snowflake.SEQ_SHIFT) - 1);
     }
 
     @Test
@@ -80,8 +79,8 @@ public class SnowflakeTest {
 
     @Test
     public void testSequence() {
-        long s = this.getSeqence(sf.next());
-
+        long sss = this.getSeqence(sf.next());
+        Assert.assertTrue(sss >= 0);
     }
 
     @Test
@@ -139,17 +138,17 @@ public class SnowflakeTest {
     @Test
     public void testNextIncreased() {
         long last = sf.next();
-//        System.out.println("1st last= " + Long.toBinaryString(last));
+        // System.out.println("1st last= " + Long.toBinaryString(last));
         last = sf.next();
-//        System.out.println("2nd last= " + Long.toBinaryString(last));
+        // System.out.println("2nd last= " + Long.toBinaryString(last));
 
         for (int i = 0; i < 1000000; i++) {
             long next = sf.next();
             if (next <= last) {
-//                System.out.println("debug");
-//                System.out.println("last= " + Long.toBinaryString(last));
-//                System.out.println("next= " + Long.toBinaryString(next));
-//                System.out.println("   i= " + i);
+                // System.out.println("debug");
+                // System.out.println("last= " + Long.toBinaryString(last));
+                // System.out.println("next= " + Long.toBinaryString(next));
+                // System.out.println(" i= " + i);
                 if (next < 0) {
                     System.out.println("less then zero.");
                 }

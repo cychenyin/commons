@@ -8,10 +8,13 @@ import java.lang.reflect.Method;
 public class CloneUtil {
 
     /**
-     * copy properties from object to object; simulate to clone, but what the different is object exists before copy.
+     * copy properties from object to object; simulate to clone, but what the
+     * different is object exists before copy.
      *
-     * @param from be copied
-     * @param to copy to
+     * @param from
+     *        be copied
+     * @param to
+     *        copy to
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void copy(Object from, Object to) {
@@ -58,9 +61,8 @@ public class CloneUtil {
      *
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    public static Object deepClone(Object obj)
-                    throws IllegalArgumentException, SecurityException, InstantiationException,
-                    IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    public static Object deepClone(Object obj) throws IllegalArgumentException, SecurityException,
+                    InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 
         // 获得对象的类型
         Class classType = obj.getClass();

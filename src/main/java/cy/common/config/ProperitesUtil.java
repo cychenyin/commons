@@ -60,6 +60,7 @@ public class ProperitesUtil {
                     try {
                         input.close();
                     } catch (IOException e) {
+                        // eat it
                     }
                 }
             }
@@ -85,6 +86,7 @@ public class ProperitesUtil {
                 try {
                     stream.close();
                 } catch (IOException e) {
+                    // eat it
                 }
             }
         }
