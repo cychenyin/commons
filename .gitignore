@@ -1,4 +1,7 @@
 .settings
+.classpath
+.checkstyle
+.project
 *.log
 *.bak
 *.backup

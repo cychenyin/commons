@@ -23,9 +23,9 @@ public class CloneUtil {
 
         Field[] fromFields = fromType.getDeclaredFields();
         if (fromType.equals(toType) || fromType.isAssignableFrom(toType)) {
-            try {
-                for (Field field : fromFields) {
 
+            for (Field field : fromFields) {
+                try {
                     String fieldName = field.getName();
                     String stringLetter = fieldName.substring(0, 1).toUpperCase();
 
@@ -42,17 +42,16 @@ public class CloneUtil {
 
                     // 调用拷贝对象的setXXX（）方法
                     setMethod.invoke(to, new Object[] { value });
+                } catch (NoSuchMethodException | SecurityException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
                 }
-            } catch (NoSuchMethodException | SecurityException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
             }
-
         }
     }
 
